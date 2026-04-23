@@ -81,7 +81,7 @@ mvn clean install
 
 ##### 3. Run project (ONLY if configured)
    
-mvn exec:java
+mvn exec:java -Dexec.mainClass="com.smartcampus.server.SmartCampusServer"
 
 #### Base URL
 
