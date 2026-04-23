@@ -1,6 +1,106 @@
-Client-Server Architectures Coursework – Report Answers
+# Smart Campus Sensor & Room Management API
 
-🔷 Part 1: Service Architecture & Setup
+## Overview
+
+This project is a RESTful API developed using JAX-RS (Jersey) for managing rooms and sensors within a Smart Campus environment. The system enables facilities managers and automated systems to interact with campus infrastructure efficiently.
+
+The API follows core REST principles such as:
+
+•	Stateless communication
+
+•	Resource-based architecture
+
+•	Proper HTTP methods and status codes
+
+•	Structured error handling
+
+•	HATEOAS-driven discovery
+
+### Technology Stack
+
+•	Java (JDK 8+)
+
+•	JAX-RS (Jersey)
+
+•	Maven
+
+•	Embedded server (Grizzly / similar)
+
+•	In-memory storage (HashMap, ArrayList)
+
+No database is used as per coursework requirements.
+
+## How to Run the Project
+
+### Prerequisites
+
+•	Java JDK installed
+
+•	Maven installed
+
+### Steps
+
+#### 1. Clone the repository
+
+git clone https://github.com/sanujiweerakkody/smart-campus-api.git
+
+#### 2. Navigate into project folder
+
+cd smart-campus-api
+
+#### 3. Build the project
+
+mvn clean install
+
+#### 4. Run the application
+
+mvn exec:java
+
+### Base URL
+
+http://localhost:8080/api/v1
+
+## Sample API Requests (curl)
+
+#### Get all rooms
+
+curl -X GET http://localhost:8080/api/v1/rooms
+
+#### Create a room
+
+curl -X POST http://localhost:8080/api/v1/rooms \
+
+-H "Content-Type: application/json" \
+
+-d '{"id":"LIB-301","name":"Library Room","capacity":50}'
+
+#### Get a specific room
+
+curl -X GET http://localhost:8080/api/v1/rooms/LIB-301
+
+#### Create a sensor
+
+curl -X POST http://localhost:8080/api/v1/sensors \
+
+-H "Content-Type: application/json" \
+
+-d '{"id":"TEMP-001","type":"Temperature","status":"ACTIVE","currentValue":25.5,"roomId":"LIB-301"}'
+
+#### Filter sensors by type
+
+curl -X GET "http://localhost:8080/api/v1/sensors?type=Temperature"
+
+#### Add a sensor reading
+
+curl -X POST http://localhost:8080/api/v1/sensors/TEMP-001/readings \
+
+-H "Content-Type: application/json" \
+
+-d '{"id":"r1","timestamp":1710000000000,"value":26.2}'
+
+## Client-Server Architectures Coursework – Report Answers
+
+### Part 1: Service Architecture & Setup
 
 1. JAX-RS Resource Lifecycle
 
@@ -20,7 +120,8 @@ The Discovery endpoint provides metadata and links to primary resources such as 
 
 This approach improves loose coupling, flexibility, and API evolvability, allowing changes to endpoints without breaking existing clients. It also enhances the self-descriptiveness of the API, which is a key characteristic of mature RESTful systems.
 
-🔷 Part 2: Room Management
+
+### Part 2: Room Management
 
 1. Returning IDs vs Full Objects
 
@@ -46,7 +147,8 @@ Although the response changes, the final state remains the same (the room is del
 
 Returning 404 for repeated requests is appropriate because it accurately reflects that the resource no longer exists.
 
-🔷 Part 3: Sensor Operations
+
+### Part 3: Sensor Operations
 
 1. @Consumes(MediaType.APPLICATION_JSON)
 
@@ -66,7 +168,8 @@ In contrast, using path parameters for filtering (e.g., /sensors/type/CO2) treat
 
 Therefore, query parameters provide a cleaner and more RESTful approach for search and filtering operations.
 
-🔷 Part 4: Sub-Resource Design
+
+### Part 4: Sub-Resource Design
 
 1. Sub-Resource Locator Pattern
 
@@ -90,7 +193,8 @@ When a new reading is added:
 
 This ensures data consistency between real-time values and historical records, supporting both monitoring and analysis.
 
-🔷 Part 5: Error Handling & Logging
+
+### Part 5: Error Handling & Logging
 
 1. HTTP 422 vs 404
 
@@ -153,11 +257,11 @@ Data validation is implemented at multiple layers to ensure robustness.
 
 This layered approach ensures that errors are detected early and handled appropriately, improving overall system reliability.
 
-🎥 Demonstration
+## Demonstration
 
 https://drive.google.com/file/d/1lhI54DeP4yreFGsArxZr9NKA5-91fAK3/view?usp=sharing
 
-👤 Author
+## Author
 
 Sanuji Weerakkody (w2120578_20231508)
 
