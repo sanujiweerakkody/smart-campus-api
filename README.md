@@ -40,23 +40,47 @@ No database is used as per coursework requirements.
 
 ### Steps
 
-#### 1. Clone the repository
+#### Method 1
+
+##### 1. Clone the repository
 
 git clone https://github.com/sanujiweerakkody/smart-campus-api.git
 
-#### 2. Navigate into project folder
+  ### OR
 
-cd smart-campus-api
+##### Navigate into project folder
 
-#### 3. Build the project
+cd C:\Users\User\Documents\NetBeansProjects\SmartCampusAPI
+
+##### 2. Build the project
 
 mvn clean install
 
-#### 4. Run the application
+#### Method 2
 
-mvn exec:java
+##### 1. Clone the repository
 
-### Base URL
+git clone https://github.com/sanujiweerakkody/smart-campus-api.git
+
+  ### OR
+
+##### Navigate into project folder
+
+cd C:\Users\User\Documents\NetBeansProjects\SmartCampusAPI
+
+##### 3. Build the project
+
+•	Open project in NetBeans
+
+•	Right click project → Clean and Build
+
+•	Run Project
+
+##### 4. Run the application
+
+java -jar target/smart-campus-api-1.0.0.jar
+
+#### Base URL
 
 http://localhost:8080/api/v1
 
