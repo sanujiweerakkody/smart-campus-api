@@ -36,49 +36,52 @@ No database is used as per coursework requirements.
 
 •	Java JDK installed
 
-•	Maven installed
+•	Maven installed (optional if using NetBeans)
 
 ### Steps
 
-#### Method 1
+#### Method 1  (Run Using NetBeans)
 
-##### 1. Clone the repository
+##### 1. Open Project
+   
+Open NetBeans
 
+File → Open Project
+
+Select SmartCampusAPI
+
+##### 2. Build Project
+   
+Right-click project
+
+Click Clean and Build
+
+##### 3. Run Project
+   
+Right-click project
+
+Click Run
+
+OR click ▶ Run button
+
+#### Base URL
+http://localhost:8080/api/v1
+
+#### Method 2  (Run Using Maven) 
+
+##### 1. Clone repository (ONLY if needed)
+   
 git clone https://github.com/sanujiweerakkody/smart-campus-api.git
 
-  ### OR
+cd smart-campus-api
 
-##### Navigate into project folder
-
-cd C:\Users\User\Documents\NetBeansProjects\SmartCampusAPI
-
-##### 2. Build the project
-
+##### 2. Build project
+ 
 mvn clean install
 
-#### Method 2
-
-##### 1. Clone the repository
-
-git clone https://github.com/sanujiweerakkody/smart-campus-api.git
-
-  ### OR
-
-##### Navigate into project folder
-
-cd C:\Users\User\Documents\NetBeansProjects\SmartCampusAPI
-
-##### 3. Build the project
-
-•	Open project in NetBeans
-
-•	Right click project → Clean and Build
-
-•	Run Project
-
-##### 4. Run the application
-
-java -jar target/smart-campus-api-1.0.0.jar
+##### 3. Run project (ONLY if configured)
+   
+mvn exec:java
 
 #### Base URL
 
